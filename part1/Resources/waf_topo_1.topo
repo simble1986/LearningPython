@@ -1,0 +1,77 @@
+-
+    name: waf
+    type: fixed
+    pc1:
+        ip: 10.160.11.182
+        os: Linux
+        conn1: eth1
+        con_method: ssh
+
+    pc2:
+        ip: 10.160.11.183
+        os: Linux
+        conn2: eth1
+        con_method: ssh
+
+        
+    dut1:
+        ip: 10.160.11.105
+        os: WAF
+        conn1: ethernet0/3
+        conn2: ethernet0/2
+        con_method: ssh
+        deploy: 1
+
+
+    conn:
+        conn1: [pc1, dut1]
+        conn2: [pc2, dut1]
+
+    schema:
+        conn1:
+            zone: l2-trust
+            mask: 64
+            ip: ['2011::4', '2011::1']
+        conn2: 
+            zone: l2-trust
+            mask: 64
+            ip: ['2011::3', '2011::2']
+
+-
+    name: owasp
+    type: fixed
+    pc1:
+        ip: 10.160.11.182
+        os: Linux
+        conn1: eth1
+        con_method: ssh
+
+    pc2:
+        ip: 10.160.11.184
+        os: Linux
+        conn2: eth1
+        con_method: ssh
+
+        
+    dut1:
+        ip: 10.160.11.105
+        os: WAF
+        conn1: ethernet0/3
+        conn2: ethernet0/2
+        con_method: ssh
+        deploy: 1
+
+
+    conn:
+        conn1: [pc1, dut1]
+        conn2: [pc2, dut1]
+
+    schema:
+        conn1:
+            zone: l2-trust
+            mask: 64
+            ip: ['2012::1', '2012::2']
+        conn2: 
+            zone: l2-trust
+            mask: 64
+            ip: ['2012::4', '2012::9']
